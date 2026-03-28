@@ -1,13 +1,10 @@
 import services
 
-
 def adicionar_paciente(lista, paciente):
     lista.append(paciente)
 
-
 def remover_paciente(lista, paciente):
     lista.remove(paciente)
-
 
 def calcular_pontuacao(paciente):
     pontos = 0
@@ -46,7 +43,6 @@ def calcular_pontuacao(paciente):
 
     return pontos
 
-
 def classificar_risco(pontos):
     if pontos >= 7:
         return "VERMELHO (Emergência)"
@@ -67,9 +63,11 @@ def atualizar_classificacao(paciente):
 def listar_pacientes(lista):
     return lista
 
+def pegar_pontuacao(x):
+    return x["pontuacao"]
 
 def ordenar_por_prioridade(lista):
-    return sorted(lista, key=lambda x: x["pontuacao"], reverse=True)
+    return sorted(lista, key=pegar_pontuacao, reverse=True)
 
 
 def total_pacientes(lista):
@@ -90,7 +88,7 @@ def gerar_relatorio(lista):
 
     for p in ordenados:
         relatorio.append(
-            (p["nome"], p["idade"], p["pontuacao"], p["classificacao"])
+            (p["nome"], p["id"], p["idade"], p["pontuacao"], p["classificacao"])
         )
 
     return relatorio

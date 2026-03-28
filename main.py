@@ -1,9 +1,7 @@
 import services
 import models
 
-
 pacientes = []
-
 
 def menu():
     print("\n===== TRIAGEM HOSPITALAR =====")
@@ -28,7 +26,7 @@ def main():
                 continue
 
             if not services.validar_id(id, pacientes):
-                print("ID já existe!")
+                print(f"O ID {id}, {nome} já existe!")
                 continue
 
             nome = input("Nome: ")
@@ -119,14 +117,15 @@ def main():
             paciente = services.buscar_paciente(id, pacientes)
             if paciente:
                 models.remover_paciente(pacientes, paciente)
-                print("Removido!")
+                print(f"O Paciente de ID:{id} foi Removido com Sucesso!")
+                print("Confira no Relatorio")
             else:
-                print("Paciente não encontrado!")
+                print(f"0 Paciente {id} não foi encontrado!")
 
         elif opcao == "4":
             print("\n===== RELATÓRIO FINAL =====")
-            for nome, idade, pontos, classe in models.gerar_relatorio(pacientes):
-                print(f"{nome} | Idade: {idade} | Pontos: {pontos} | {classe}")
+            for nome, id, idade, pontos, classe in models.gerar_relatorio(pacientes):
+                print(f"{nome} | id: {id} | Idade: {idade} | Pontos: {pontos} | {classe}")
 
         elif opcao == "5":
             print("\n===== ESTATÍSTICAS =====")
