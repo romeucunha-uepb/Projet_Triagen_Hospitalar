@@ -111,7 +111,7 @@ def main():
             try:
                 id = int(input("ID: "))
             except:
-                print("ID inválido!")
+                print(f"O ID: {id} é inválido!")
                 continue
 
             paciente = services.buscar_paciente(id, pacientes)

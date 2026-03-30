@@ -1,4 +1,3 @@
-import services
 
 def adicionar_paciente(lista, paciente):
     lista.append(paciente)
@@ -88,7 +87,7 @@ def gerar_relatorio(lista):
 
     for p in ordenados:
         relatorio.append(
-            (p["nome"], p["id"], p["idade"], p["pontuacao"], p["classificacao"])
+        (p["nome"], p["id"], p["idade"], p["pontuacao"], p["classificacao"])
         )
 
     return relatorio

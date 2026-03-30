@@ -1,5 +1,3 @@
-import models
-
 
 def criar_paciente(id, nome, idade, febre, dor, pressao_sistolica, pressao_diastolica, frequencia_cardiaca):
     return {
@@ -17,7 +15,7 @@ def criar_paciente(id, nome, idade, febre, dor, pressao_sistolica, pressao_diast
 
 
 def validar_nome(nome):
-    return nome.strip() != ""
+    return nome.isalpha() #isalpha() verifica se o nome tem apenas letras.
 
 
 def validar_id(id, pacientes):
